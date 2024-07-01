@@ -9,6 +9,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { EmailLogModule } from './email-log/module/email-log.module';
 import { EmailModule } from './modules/email.module';
+import { EmailSettingsModule } from './email-settings/modules/email-settings.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -17,6 +18,7 @@ import { EmailModule } from './modules/email.module';
     }),
     EmailModule,
     EmailLogModule,
+    EmailSettingsModule,
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
